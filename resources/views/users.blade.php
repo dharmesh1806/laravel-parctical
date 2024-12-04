@@ -45,7 +45,6 @@
                         "Authorization": localStorage.getItem('accessToken') || ""
                     },
                     "data": function(d) {
-                        return []
                     },
                     "dataSrc": function(json) {
                         $scope.list = json.data;
@@ -60,27 +59,42 @@
                 "columns": [{
                         "targets": 0,
                         "data": 'firstName',
-                        "defaultContent": null
+                        "defaultContent": null,
+                        render: (data, type, row, meta) => {
+                            return data ? data : '-'
+                        }
                     },
                     {
                         "targets": 1,
                         "data": 'lastName',
-                        "defaultContent": null
+                        "defaultContent": null,
+                        render: (data, type, row, meta) => {
+                            return data ? data : '-'
+                        }
                     },
                     {
                         "targets": 2,
                         "data": 'email',
-                        "defaultContent": null
+                        "defaultContent": null,
+                        render: (data, type, row, meta) => {
+                            return data ? data : '-'
+                        }
                     },
                     {
                         "targets": 3,
                         "data": 'gender',
-                        "defaultContent": null
+                        "defaultContent": null,
+                        render: (data, type, row, meta) => {
+                            return data ? data : '-'
+                        }
                     },
                     {
                         "targets": 4,
                         "data": 'hobbies',
-                        "defaultContent": null
+                        "defaultContent": null,
+                        render: (data, type, row, meta) => {
+                            return data ? data : '-'
+                        }
                     },
                     {
                         "targets": 5,

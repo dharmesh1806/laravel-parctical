@@ -31,6 +31,7 @@ class UserController extends Controller
             foreach ($request->file('files') as $file) {
                 $extension = $file->getClientOriginalExtension();
                 $fileName_ = time() . '_' . uniqid() . '.' . $extension;
+                $file->storeAs('uploads', $fileName_,'public');
                 $fileName[] = $fileName_;
             }
         }

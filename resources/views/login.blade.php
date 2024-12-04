@@ -37,13 +37,13 @@
         $scope.loader = false
         $scope.submitData = async function name() {
             if (!$scope.loader) {
-                try {
-                    validateString($scope.data.email, 'Enter email')
-                    validateString($scope.data.password, 'Enter password')
-                } catch (e) {
-                    toastr.error(e)
-                    return
-                }
+                // try {
+                //     validateString($scope.data.email, 'Enter email')
+                //     validateString($scope.data.password, 'Enter password')
+                // } catch (e) {
+                //     toastr.error(e)
+                //     return
+                // }
                 let params = new URLSearchParams();
                 params.append('email', $scope.data.email);
                 params.append('password', $scope.data.password);
@@ -67,6 +67,7 @@
                 } else {
                     toastr.error(response.message);
                 }
+                $scope.$apply()
             }
         }
     });

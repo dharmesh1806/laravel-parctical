@@ -33,7 +33,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => public_path('uploads'),  // Store files in public/uploads
-            'url' => env('APP_URL') . '/uploads',
+            'url' => env('APP_URL') . '/upl',
             'visibility' => 'public',
         ],
 

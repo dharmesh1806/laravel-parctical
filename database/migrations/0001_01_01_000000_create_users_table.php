@@ -11,16 +11,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('email')->unique();
-            $table->string('contactNumber');
-            $table->integer('postCode');
-            $table->string('password');
-            $table->string('hobbies');
-            $table->string('files');
-            $table->tinyInteger('gender');
-            $table->tinyInteger('role');
+            $table->string('firstName')->nullable();
+            $table->string('lastName')->nullable();
+            $table->string('email')->nullable()->unique();
+            $table->string('contactNumber')->nullable();
+            $table->integer('postCode')->default(0);
+            $table->string('password')->nullable();
+            $table->string('hobbies')->nullable();
+            $table->string('files')->nullable();
+            $table->tinyInteger('gender')->default(0);
+            $table->tinyInteger('role')->default(0);
             $table->timestamps();
         });
 
