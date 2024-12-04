@@ -159,9 +159,6 @@
                 $scope.loader = true
                 let res = await fetch('/register', {
                     method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
                     body: formData
                 })
                 $scope.loader = false
@@ -180,9 +177,6 @@
         $scope.getRoleList = async function() {
             let res = await fetch('/roles', {
                 method: 'get',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
             })
             let response = await res.json()
             if (res.status == 200) {

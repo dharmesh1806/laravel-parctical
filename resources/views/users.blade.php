@@ -140,7 +140,6 @@
                     let res = await fetch('/delete-user', {
                         method: 'DELETE',
                         headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                             'Content-Type': 'application/x-www-form-urlencoded',
                             "Authorization": localStorage.getItem('accessToken') || ""
                         },
@@ -156,7 +155,6 @@
                     }
                 }
             })
-
         }
     });
 </script>

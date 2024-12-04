@@ -118,7 +118,6 @@
                     let res = await fetch('/delete-role', {
                         method: 'DELETE',
                         headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                             'Content-Type': 'application/x-www-form-urlencoded',
                             "Authorization": localStorage.getItem('accessToken') || ""
                         },
@@ -165,7 +164,6 @@
             let res = await fetch($scope.id ? 'edit-role' : '/add-role', {
                 method: $scope.id ? 'PUT' : 'POST',
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                     'Content-Type': 'application/x-www-form-urlencoded',
                     "Authorization": localStorage.getItem('accessToken') || ""
                 },

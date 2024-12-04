@@ -70,7 +70,7 @@ class UserController extends Controller
         $offset = $request->input('start');
         $limit = $request->input('length');
         $draw = $request->input('draw');
-        $list = DB::table('roles')->offset($offset)->limit($limit)->get();
+        $list = DB::table('roles')->orderBy('id', 'desc')->offset($offset)->limit($limit)->get();
         $count = DB::table('roles')->count();
         return response()->json(['data' => $list, 'recordsFiltered' => $count, 'recordsTotal' => $count, 'draw' => $draw]);
     }

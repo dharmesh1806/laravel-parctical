@@ -37,13 +37,13 @@
         $scope.loader = false
         $scope.submitData = async function name() {
             if (!$scope.loader) {
-                // try {
-                //     validateString($scope.data.email, 'Enter email')
-                //     validateString($scope.data.password, 'Enter password')
-                // } catch (e) {
-                //     toastr.error(e)
-                //     return
-                // }
+                try {
+                    validateString($scope.data.email, 'Enter email')
+                    validateString($scope.data.password, 'Enter password')
+                } catch (e) {
+                    toastr.error(e)
+                    return
+                }
                 let params = new URLSearchParams();
                 params.append('email', $scope.data.email);
                 params.append('password', $scope.data.password);
@@ -51,7 +51,6 @@
                 let res = await fetch('/user-login', {
                     method: 'POST',
                     headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
                     body: params.toString()
@@ -67,7 +66,6 @@
                 } else {
                     toastr.error(response.message);
                 }
-                $scope.$apply()
             }
         }
     });
